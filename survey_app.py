@@ -15,7 +15,7 @@ def load_data():
         return pd.read_csv(CSV_FILE)
     else:
         return pd.DataFrame(columns=[
-            "ID", "顧客名", "都道府県",
+            "ID", "顧客名", "都道府県","販売店名", "担当者名",
             "LTEの提案", "LTEの提案コメント",
             "LTEのコスト感", "LTEのコスト感コメント",
             "ネット解析の評価", "ネット解析の評価コメント",
@@ -81,6 +81,8 @@ if mode == "新規回答":
         new_id = str(uuid.uuid4())[:8]
         name = st.text_input("顧客名")
         prefecture = st.text_input("都道府県")
+        store = st.text_input("販売店名")
+        staff = st.text_input("担当者名")
 
         st.subheader("1. 必須")
         q1 = st.radio("①LTEの提案", ["〇 良い", "× 悪い"])
@@ -143,6 +145,8 @@ if mode == "新規回答":
                 "ID": new_id,
                 "顧客名": name,
                 "都道府県": prefecture,
+                "販売店名": store,
+                "担当者名": staff,
                 "LTEの提案": q1,
                 "LTEの提案コメント": q1_comment,
                 "LTEのコスト感": q2,
@@ -205,6 +209,9 @@ elif mode == "既存回答の編集・削除":
         with st.form("edit_entry"):
             name = st.text_input("顧客名", value=entry["顧客名"])
             prefecture = st.text_input("都道府県", value=entry["都道府県"])
+            store = st.text_input("販売店名", value=entry["販売店名"])
+            staff = st.text_input("担当者名", value=entry["担当者名"])
+
             q1 = st.radio("①LTEの提案", ["〇 良い", "× 悪い"], index=["〇 良い", "× 悪い"].index(entry["LTEの提案"]))
             q1_comment = st.text_input("LTEの提案コメント", value=entry["LTEの提案コメント"])
             q2 = st.radio("②LTEのコスト感", ["〇 安い", "△ 良い", "× 高い"], index=["〇 安い", "△ 良い", "× 高い"].index(entry["LTEのコスト感"]))
@@ -261,6 +268,21 @@ elif mode == "既存回答の編集・削除":
         if st.button("この回答を削除"):
             data = delete_entry(data, edit_id)
             st.success(f"回答ID {edit_id} を削除しました。")
+
+# 認証処理（管理者のみ回答一覧・CSV・グラフを表示）
+ADMIN_PASSWORD = "admin"  # 必要に応じて変更
+
+if "authenticated" not in st.session_state:
+    st.session_state["authenticated"] = False
+
+if not st.session_state["authenticated"]:
+    password = st.text_input("管理者パスワードを入力してください", type="password")
+    if password == ADMIN_PASSWORD:
+        st.session_state["authenticated"] = True
+        st.success("認証に成功しました。管理者機能が表示されます。")
+    elif password:
+        st.error("パスワードが違います。")
+    st.stop()
 
 # 回答一覧表示
 st.header("回答一覧")
