@@ -82,7 +82,7 @@ if mode == "新規回答":
         name = st.text_input("顧客名")
         prefecture = st.text_input("都道府県")
         store = st.text_input("販売店名")
-        staff = st.text_input("担当者名")
+        staff = st.text_input("矢崎担当者名")
 
         st.subheader("1. 提案プラン※必須")
         q1 = st.radio("①LTEの提案", ["未確認", "〇 良い", "× 悪い"])
