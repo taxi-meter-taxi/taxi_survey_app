@@ -84,7 +84,7 @@ if mode == "新規回答":
         store = st.text_input("販売店名")
         staff = st.text_input("担当者名")
 
-        st.subheader("1. 必須")
+        st.subheader("1. 提案プラン※必須")
         q1 = st.radio("①LTEの提案", ["未確認", "〇 良い", "× 悪い"])
         q1_comment = st.text_input("LTEの提案コメント")
 
@@ -97,45 +97,45 @@ if mode == "新規回答":
         q4 = st.radio("④ネット解析のコスト感", ["未確認", "〇 安い", "△ 良い", "× 高い"])
         q4_comment = st.text_input("ネット解析のコスト感コメント（目標価格、要望）")
 
-        q5 = st.radio("⑤売上を上げたい事業者か？", ["未確認", "〇 はい", "× いいえ"])
-        q5_comment = st.text_input("売上コメント")
+        st.subheader("2. 提案機能※必須")
+        q5 = st.radio("①解析ソフト・地図ソフト購入不要", ["－", "〇", "×"])
+        q6 = st.radio("②カードレス", ["－", "〇", "×"])
+        q7 = st.radio("③自動日報", ["－", "〇", "×"])
+        q7_comment = st.text_input("自動日報コメント（なぜ自動日報をしたいのか？）")
+        q8 = st.radio("④データバックアップ", ["－", "〇", "×"])
+        q9 = st.radio("⑤コールセンター", ["－", "〇", "×"])
+        q10 = st.radio("⑥OTA", ["－", "〇", "×"])
+        q11 = st.radio("⑦料金改定", ["－", "〇", "×"])
+        q12 = st.radio("⑧リアルタイム分析", ["－", "〇", "×"])
+        q13 = st.radio("⑨動態管理", ["－", "〇", "×"])
+        q14 = st.radio("⑩乗降地分析", ["－", "〇", "×"])
+        q15 = st.radio("⑪ドラサポ", ["－", "〇", "×"])
+        q16 = st.radio("⑫乗務員比較", ["－", "〇", "×"])
+        q17 = st.radio("⑬複数拠点情報管理", ["－", "〇", "×"])
+        q18 = st.radio("⑭本社集約", ["－", "〇", "×"])
+        q19 = st.radio("⑮遠隔地でのデータ確認", ["－", "〇", "×"])
 
-        q6 = st.radio("⑥分析ツールを使っているか？", ["未確認", "〇 はい", "× いいえ"])
-        q6_comment = st.text_input("分析ツールコメント（使っているツール名）")
+        st.subheader("3. 顧客情報")
+        q20 = st.radio("①売上を上げたい事業者か？", ["未確認", "〇 はい", "× いいえ"])
+        q20_comment = st.text_input("売上コメント")
 
-        q7 = st.radio("⑦複数拠点、車庫が離れている", ["未確認", "〇 はい", "× いいえ"])
-        q7_comment = st.text_input("複数拠点コメント")
+        q21 = st.radio("②分析ツールを使っているか？", ["未確認", "〇 はい", "× いいえ"])
+        q21_comment = st.text_input("分析ツールコメント（使っているツール名）")
 
-        q8 = st.radio("⑧無線の使用率", ["未確認", "〇 高い", "× 低い"])
-        q8_comment = st.text_input("無線コメント（比率など）")
+        q22 = st.radio("③複数拠点、車庫が離れている", ["未確認", "〇 はい", "× いいえ"])
+        q22_comment = st.text_input("複数拠点コメント")
 
-        st.subheader("2. 必須ではない")
-        q9 = st.radio("①インバウンド顧客が多いか？", ["未確認", "〇 多い", "× 少ない"])
-        q9_comment = st.text_input("インバウンドコメント")
+        q23 = st.radio("④無線の使用率", ["未確認", "〇 高い", "× 低い"])
+        q23_comment = st.text_input("無線コメント（比率など）")
 
-        q10 = st.radio("②流しか付け待ちどちらが多いか？", ["未確認", "流し", "付け待ち"])
-        q10_comment = st.text_input("流しコメント")
+        q24 = st.radio("⑤インバウンド顧客が多いか？", ["未確認", "〇 多い", "× 少ない"])
+        q24_comment = st.text_input("インバウンドコメント")
 
-        q11 = st.radio("③乗務員の新規採用は多いか？", ["未確認", "〇 多い", "× 少ない"])
-        q11_comment = st.text_input("採用コメント")
+        q25 = st.radio("⑥流しか付け待ちどちらが多いか？", ["未確認", "流し", "付け待ち"])
+        q25_comment = st.text_input("流しコメント")
 
-        st.subheader("3. 機能について")
-        q12 = st.radio("①解析ソフト・地図ソフト購入不要", ["－", "〇", "×"])
-        q13 = st.radio("②カードレス", ["－", "〇", "×"])
-        q14 = st.radio("③自動日報", ["－", "〇", "×"])
-        q14_comment = st.text_input("自動日報コメント（なぜ自動日報をしたいのか？）")
-        q15 = st.radio("④データバックアップ", ["－", "〇", "×"])
-        q16 = st.radio("⑤コールセンター", ["－", "〇", "×"])
-        q17 = st.radio("⑥OTA", ["－", "〇", "×"])
-        q18 = st.radio("⑦料金改定", ["－", "〇", "×"])
-        q19 = st.radio("⑧リアルタイム分析", ["－", "〇", "×"])
-        q20 = st.radio("⑨動態管理", ["－", "〇", "×"])
-        q21 = st.radio("⑩乗降地分析", ["－", "〇", "×"])
-        q22 = st.radio("⑪ドラサポ", ["－", "〇", "×"])
-        q23 = st.radio("⑫乗務員比較", ["－", "〇", "×"])
-        q24 = st.radio("⑬複数拠点情報管理", ["－", "〇", "×"])
-        q25 = st.radio("⑭本社集約", ["－", "〇", "×"])
-        q26 = st.radio("⑮遠隔地でのデータ確認", ["－", "〇", "×"])
+        q26 = st.radio("⑦乗務員の新規採用は多いか？", ["未確認", "〇 多い", "× 少ない"])
+        q26_comment = st.text_input("採用コメント")
 
         memo = st.text_area("自由記入欄")
 
@@ -155,36 +155,36 @@ if mode == "新規回答":
                 "ネット解析の評価コメント": q3_comment,
                 "ネット解析のコスト感": q4,
                 "ネット解析のコスト感コメント": q4_comment,
-                "売上を上げたい事業者か？": q5,
-                "売上コメント": q5_comment,
-                "分析ツールを使っているか？": q6,
-                "分析ツールコメント": q6_comment,
-                "複数拠点・車庫が離れている": q7,
-                "複数拠点コメント": q7_comment,
-                "無線の使用率": q8,
-                "無線コメント": q8_comment,
-                "インバウンド顧客が多いか？": q9,
-                "インバウンドコメント": q9_comment,
-                "流しか付け待ちどちらが多いか？": q10,
-                "流しコメント": q10_comment,
-                "乗務員の新規採用は多いか？": q11,
-                "採用コメント": q11_comment,
-                "解析ソフト・地図ソフト購入不要": q12,
-                "カードレス": q13,
-                "自動日報": q14,
-                "自動日報コメント": q14_comment,
-                "データバックアップ": q15,
-                "コールセンター": q16,
-                "OTA": q17,
-                "料金改定": q18,
-                "リアルタイム分析": q19,
-                "動態管理": q20,
-                "乗降地分析": q21,
-                "ドラサポ": q22,
-                "乗務員比較": q23,
-                "複数拠点情報管理": q24,
-                "本社集約": q25,
-                "遠隔地でのデータ確認": q26,
+                "解析ソフト・地図ソフト購入不要": q5,
+                "カードレス": q6,
+                "自動日報": q7,
+                "自動日報コメント": q7_comment,
+                "データバックアップ": q8,
+                "コールセンター": q9,
+                "OTA": q10,
+                "料金改定": q11,
+                "リアルタイム分析": q12,
+                "動態管理": q13,
+                "乗降地分析": q14,
+                "ドラサポ": q15,
+                "乗務員比較": q16,
+                "複数拠点情報管理": q17,
+                "本社集約": q18,
+                "遠隔地でのデータ確認": q19,
+                "売上を上げたい事業者か？": q20,
+                "売上コメント": q20_comment,
+                "分析ツールを使っているか？": q21,
+                "分析ツールコメント": q21_comment,
+                "複数拠点・車庫が離れている": q22,
+                "複数拠点コメント": q22_comment,
+                "無線の使用率": q23,
+                "無線コメント": q23_comment,
+                "インバウンド顧客が多いか？": q24,
+                "インバウンドコメント": q24_comment,
+                "流しか付け待ちどちらが多いか？": q25,
+                "流しコメント": q25_comment,
+                "乗務員の新規採用は多いか？": q26,
+                "採用コメント": q26_comment,
                 "自由記入欄": memo
             }])
             data = pd.concat([data, new_row], ignore_index=True)
@@ -235,36 +235,36 @@ elif mode == "既存回答の編集・削除":
             q3_comment = st.text_input("ネット解析の評価コメント", value=entry["ネット解析の評価コメント"])
             q4 = st.radio("④ネット解析のコスト感", ["未確認", "〇 安い", "△ 良い", "× 高い"], index=["未確認", "〇 安い", "△ 良い", "× 高い"].index(entry["ネット解析のコスト感"]))
             q4_comment = st.text_input("ネット解析のコスト感コメント（目標価格、要望）", value=entry["ネット解析のコスト感コメント"])
-            q5 = st.radio("⑤売上を上げたい事業者か？", ["未確認", "〇 はい", "× いいえ"], index=["未確認", "〇 はい", "× いいえ"].index(entry["売上を上げたい事業者か？"]))
-            q5_comment = st.text_input("売上コメント", value=entry["売上コメント"])
-            q6 = st.radio("⑥分析ツールを使っているか？", ["未確認", "〇 はい", "× いいえ"], index=["未確認", "〇 はい", "× いいえ"].index(entry["分析ツールを使っているか？"]))
-            q6_comment = st.text_input("分析ツールコメント（使っているツール名）", value=entry["分析ツールコメント"])
-            q7 = st.radio("⑦複数拠点、車庫が離れている", ["未確認", "〇 はい", "× いいえ"], index=["未確認", "〇 はい", "× いいえ"].index(entry["複数拠点・車庫が離れている"]))
-            q7_comment = st.text_input("複数拠点コメント", value=entry["複数拠点コメント"])
-            q8 = st.radio("⑧無線の使用率", ["未確認", "〇 高い", "× 低い"], index=["未確認", "〇 高い", "× 低い"].index(entry["無線の使用率"]))
-            q8_comment = st.text_input("無線コメント（比率など）", value=entry["無線コメント"])
-            q9 = st.radio("①インバウンド顧客が多いか？", ["未確認", "〇 多い", "× 少ない"], index=["未確認", "〇 多い", "× 少ない"].index(entry["インバウンド顧客が多いか？"]))
-            q9_comment = st.text_input("インバウンドコメント", value=entry["インバウンドコメント"])
-            q10 = st.radio("②流しか付け待ちどちらが多いか？", ["未確認", "流し", "付け待ち"], index=["未確認", "流し", "付け待ち"].index(entry["流しか付け待ちどちらが多いか？"]))
-            q10_comment = st.text_input("流しコメント", value=entry["流しコメント"])
-            q11 = st.radio("③乗務員の新規採用は多いか？", ["未確認", "〇 多い", "× 少ない"], index=["未確認", "〇 多い", "× 少ない"].index(entry["乗務員の新規採用は多いか？"]))
-            q11_comment = st.text_input("採用コメント", value=entry["採用コメント"])
-            q12 = st.radio("①解析ソフト・地図ソフト購入不要", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["解析ソフト・地図ソフト購入不要"]))
-            q13 = st.radio("②カードレス", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["カードレス"]))
-            q14 = st.radio("③自動日報", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["自動日報"]))
-            q14_comment = st.text_input("自動日報コメント（なぜ自動日報をしたいのか？）", value=entry["自動日報コメント"])
-            q15 = st.radio("④データバックアップ", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["データバックアップ"]))
-            q16 = st.radio("⑤コールセンター", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["コールセンター"]))
-            q17 = st.radio("⑥OTA", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["OTA"]))
-            q18 = st.radio("⑦料金改定", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["料金改定"]))
-            q19 = st.radio("⑧リアルタイム分析", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["リアルタイム分析"]))
-            q20 = st.radio("⑨動態管理", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["動態管理"]))
-            q21 = st.radio("⑩乗降地分析", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["乗降地分析"]))
-            q22 = st.radio("⑪ドラサポ", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["ドラサポ"]))
-            q23 = st.radio("⑫乗務員比較", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["乗務員比較"]))
-            q24 = st.radio("⑬複数拠点情報管理", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["複数拠点情報管理"]))
-            q25 = st.radio("⑭本社集約", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["本社集約"]))
-            q26 = st.radio("⑮遠隔地でのデータ確認", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["遠隔地でのデータ確認"]))
+            q5 = st.radio("①解析ソフト・地図ソフト購入不要", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["解析ソフト・地図ソフト購入不要"]))
+            q6 = st.radio("②カードレス", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["カードレス"]))
+            q7 = st.radio("③自動日報", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["自動日報"]))
+            q7_comment = st.text_input("自動日報コメント（なぜ自動日報をしたいのか？）", value=entry["自動日報コメント"])
+            q8 = st.radio("④データバックアップ", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["データバックアップ"]))
+            q9 = st.radio("⑤コールセンター", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["コールセンター"]))
+            q10 = st.radio("⑥OTA", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["OTA"]))
+            q11 = st.radio("⑦料金改定", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["料金改定"]))
+            q12 = st.radio("⑧リアルタイム分析", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["リアルタイム分析"]))
+            q13 = st.radio("⑨動態管理", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["動態管理"]))
+            q14 = st.radio("⑩乗降地分析", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["乗降地分析"]))
+            q15 = st.radio("⑪ドラサポ", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["ドラサポ"]))
+            q16 = st.radio("⑫乗務員比較", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["乗務員比較"]))
+            q17 = st.radio("⑬複数拠点情報管理", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["複数拠点情報管理"]))
+            q18 = st.radio("⑭本社集約", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["本社集約"]))
+            q19 = st.radio("⑮遠隔地でのデータ確認", ["－", "〇", "×"], index=["－", "〇", "×"].index(entry["遠隔地でのデータ確認"]))
+            q20 = st.radio("①売上を上げたい事業者か？", ["未確認", "〇 はい", "× いいえ"], index=["未確認", "〇 はい", "× いいえ"].index(entry["売上を上げたい事業者か？"]))
+            q20_comment = st.text_input("売上コメント", value=entry["売上コメント"])
+            q21 = st.radio("②分析ツールを使っているか？", ["未確認", "〇 はい", "× いいえ"], index=["未確認", "〇 はい", "× いいえ"].index(entry["分析ツールを使っているか？"]))
+            q21_comment = st.text_input("分析ツールコメント（使っているツール名）", value=entry["分析ツールコメント"])
+            q22 = st.radio("③複数拠点、車庫が離れている", ["未確認", "〇 はい", "× いいえ"], index=["未確認", "〇 はい", "× いいえ"].index(entry["複数拠点・車庫が離れている"]))
+            q22_comment = st.text_input("複数拠点コメント", value=entry["複数拠点コメント"])
+            q23 = st.radio("④無線の使用率", ["未確認", "〇 高い", "× 低い"], index=["未確認", "〇 高い", "× 低い"].index(entry["無線の使用率"]))
+            q23_comment = st.text_input("無線コメント（比率など）", value=entry["無線コメント"])
+            q24 = st.radio("⑤インバウンド顧客が多いか？", ["未確認", "〇 多い", "× 少ない"], index=["未確認", "〇 多い", "× 少ない"].index(entry["インバウンド顧客が多いか？"]))
+            q24_comment = st.text_input("インバウンドコメント", value=entry["インバウンドコメント"])
+            q25 = st.radio("⑥流しか付け待ちどちらが多いか？", ["未確認", "流し", "付け待ち"], index=["未確認", "流し", "付け待ち"].index(entry["流しか付け待ちどちらが多いか？"]))
+            q25_comment = st.text_input("流しコメント", value=entry["流しコメント"])
+            q26 = st.radio("⑦乗務員の新規採用は多いか？", ["未確認", "〇 多い", "× 少ない"], index=["未確認", "〇 多い", "× 少ない"].index(entry["乗務員の新規採用は多いか？"]))
+            q26_comment = st.text_input("採用コメント", value=entry["採用コメント"])
             memo = st.text_area("自由記入欄", value=entry["自由記入欄"])
 
             updated = st.form_submit_button("修正を保存")
@@ -272,10 +272,10 @@ elif mode == "既存回答の編集・削除":
                 data.loc[data["ID"] == edit_id] = [
                     edit_id, name, prefecture,
                     q1, q1_comment, q2, q2_comment, q3, q3_comment, q4, q4_comment,
-                    q5, q5_comment, q6, q6_comment, q7, q7_comment, q8, q8_comment,
-                    q9, q9_comment, q10, q10_comment, q11, q11_comment,
-                    q12, q13, q14, q14_comment, q15, q16, q17, q18, q19, q20,
-                    q21, q22, q23, q24, q25, q26, memo
+                    q5, q6, q7, q7_comment, q8, q9, q10, q11,
+                    q12, q13, q14, q15, q16, q17,
+                    q18, q19, q20, q20_comment, q21, q21_comment,q22, q22_comment,
+                    q23, q23_comment, q24, q24_comment, q25, q25_comment, q26, q26_comment, memo
                 ]
                 save_data(data)
                 st.success("回答を更新しました。")
@@ -287,12 +287,6 @@ elif mode == "既存回答の編集・削除":
 # 回答一覧表示
 st.header("回答一覧")
 st.dataframe(data)
-
-# CSVダウンロード
-st.header("CSVファイルのダウンロード")
-if not data.empty:
-    csv = data.to_csv(index=False).encode("utf-8")
-    st.download_button("responses.csv をダウンロード", csv, "responses.csv", "text/csv")
 
 # グラフ表示
 st.header("回答傾向のグラフ")
