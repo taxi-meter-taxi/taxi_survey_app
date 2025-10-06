@@ -191,6 +191,21 @@ if mode == "新規回答":
             save_data(data)
             st.success("回答を保存しました。")
 
+# 認証処理（管理者のみ回答一覧・CSV・グラフを表示）
+ADMIN_PASSWORD = "admin"  # 必要に応じて変更
+
+if "authenticated" not in st.session_state:
+    st.session_state["authenticated"] = False
+
+if not st.session_state["authenticated"]:
+    password = st.text_input("管理者パスワードを入力してください", type="password")
+    if password == ADMIN_PASSWORD:
+        st.session_state["authenticated"] = True
+        st.success("認証に成功しました。管理者機能が表示されます。")
+    elif password:
+        st.error("パスワードが違います。")
+    st.stop()
+
 elif mode == "既存回答の編集・削除":
     st.header("既存回答の編集・削除")
     search_name = st.text_input("検索：顧客名")
@@ -268,21 +283,6 @@ elif mode == "既存回答の編集・削除":
         if st.button("この回答を削除"):
             data = delete_entry(data, edit_id)
             st.success(f"回答ID {edit_id} を削除しました。")
-
-# 認証処理（管理者のみ回答一覧・CSV・グラフを表示）
-ADMIN_PASSWORD = "admin"  # 必要に応じて変更
-
-if "authenticated" not in st.session_state:
-    st.session_state["authenticated"] = False
-
-if not st.session_state["authenticated"]:
-    password = st.text_input("管理者パスワードを入力してください", type="password")
-    if password == ADMIN_PASSWORD:
-        st.session_state["authenticated"] = True
-        st.success("認証に成功しました。管理者機能が表示されます。")
-    elif password:
-        st.error("パスワードが違います。")
-    st.stop()
 
 # 回答一覧表示
 st.header("回答一覧")
